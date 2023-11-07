@@ -5,3 +5,7 @@ edition = "2021"
 
 [dependencies]
 embedded-hal = { version = "0.2.7", features = [ "unproven" ] } 
+
+[features]
+floats = [ ]
+serde = [ ]
