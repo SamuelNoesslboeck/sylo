@@ -7,9 +7,11 @@
 // ####################
 // #    SUBMODULES    #
 // ####################
-    mod switch;  
+    mod dc_motor;
+    pub use dc_motor::DcMotor;
 
-    pub use switch::*;
+    mod switch;  
+    pub use switch::Switch;
 //
 
 // ####################
@@ -17,6 +19,7 @@
 // ####################
     /// Direction of movement
     #[derive(Clone, Copy, PartialEq, PartialOrd, Eq, Debug, Default)]
+    #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
     #[repr(u8)]
     pub enum Direction {
         /// Counterclockwise (`false` / `0`)
@@ -86,6 +89,24 @@
     impl From<u8> for Direction {
         fn from(value: u8) -> Self {
             Self::from_u8(value)
+        }
+    }
+
+    impl Into<embedded_hal::Direction> for Direction {
+        fn into(self) -> embedded_hal::Direction {
+            match self {
+                Self::CCW => embedded_hal::Direction::Downcounting,
+                Self::CW => embedded_hal::Direction::Upcounting
+            }
+        }
+    }
+
+    impl From<embedded_hal::Direction> for Direction {
+        fn from(value: embedded_hal::Direction) -> Self {
+            match value {
+                embedded_hal::Direction::Downcounting => Self::CCW,
+                embedded_hal::Direction::Upcounting => Self::CW
+            }
         }
     }
 // 
