@@ -1,6 +1,6 @@
 use embedded_hal::PwmPin;
 
-use crate::Direction;
+use crate::{Direction, Enable, Disable};
 
 /// A simple dc motor with two pins as PWM control
 pub struct DcMotor<CW : PwmPin, CCW : PwmPin> 
@@ -52,20 +52,6 @@ where
         }
     // 
 
-    // Enable & Disable
-        /// Enables the motor
-        pub fn enable(&mut self) {
-            self.sig_cw.enable();
-            self.sig_ccw.enable();
-        }
-
-        /// Disables the motor
-        pub fn disable(&mut self) {
-            self.sig_cw.disable();
-            self.sig_ccw.disable();
-        }
-    // 
-
     /// Drive the motor at a certain duty
     pub fn drive(&mut self, dir : Direction, speed : CW::Duty) {
         self._dir = dir;
@@ -81,5 +67,28 @@ where
                 self.sig_ccw.set_duty(speed.into());
             },
         }
+    }
+}
+
+// Enable & Disable
+impl<CW : PwmPin, CCW : PwmPin> Enable for DcMotor<CW, CCW> 
+where
+    CW::Duty : Copy + Default,
+    CCW::Duty : Copy + Default + From<CW::Duty>
+{
+    fn enable(&mut self) {
+        self.sig_cw.enable();
+        self.sig_ccw.enable();
+    }
+}
+
+impl<CW : PwmPin, CCW : PwmPin> Disable for DcMotor<CW, CCW> 
+where
+    CW::Duty : Copy + Default,
+    CCW::Duty : Copy + Default + From<CW::Duty>
+{
+    fn disable(&mut self) {
+        self.sig_cw.disable();
+        self.sig_ccw.disable();
     }
 }
