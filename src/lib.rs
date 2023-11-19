@@ -2,7 +2,7 @@
 //! 
 //! A library for basic devices, sensors and more with `embedded-hal` implementations 
 #![no_std]
-#![warn(missing_docs)]
+// #![warn(missing_docs)]
 
 // ####################
 // #    SUBMODULES    #
@@ -12,6 +12,12 @@
 
     mod dc_motor;
     pub use dc_motor::DcMotor;
+
+    pub mod keypad;
+    pub use keypad::KeyPad;
+
+    mod stepper;
+    // pub use stepper;
 
     mod switch;  
     pub use switch::Switch;
