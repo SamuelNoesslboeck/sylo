@@ -20,7 +20,9 @@
     // pub use stepper;
 
     mod switch;  
-    pub use switch::Switch;
+    pub use switch::{Switch, Relay};
+
+    mod tele;
 //
 
 // ##########################

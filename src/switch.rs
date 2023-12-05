@@ -1,4 +1,4 @@
-use embedded_hal::digital::v2::InputPin;
+use embedded_hal::digital::v2::{InputPin, OutputPin};
 
 use crate::BoolMeas;
 
@@ -16,13 +16,41 @@ impl<P : InputPin> Switch<P> {
             trigger
         }
     }
+
+    pub fn is_triggered(&mut self) -> Result<bool, P::Error> {
+        Ok(self.pin.is_high()? == self.trigger)
+    }
 }
 
 impl<P : InputPin> BoolMeas for Switch<P> {
     type Error = P::Error;
 
     fn meas(&mut self) -> Result<bool, Self::Error> {
-        Ok(self.pin.is_high()? == self.trigger)
+        self.is_triggered()
+    }
+}
+
+/// A simple relay structure
+pub struct Relay<P : OutputPin> {
+    pin : P
+}
+
+impl<P : OutputPin> Relay<P> {
+    /// Creates a new relay
+    pub fn new(pin : P) -> Self {
+        Self {
+            pin
+        }
+    }
+
+    /// Sets the relay to high
+    pub fn set_high(&mut self) -> Result<(), P::Error> {
+        self.pin.set_high()
+    }
+
+    /// Sets the relay to low
+    pub fn set_low(&mut self) -> Result<(), P::Error> {
+        self.pin.set_low()
     }
 }
 
