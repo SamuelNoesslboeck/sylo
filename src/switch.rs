@@ -43,6 +43,14 @@ impl<P : OutputPin> Relay<P> {
         }
     }
 
+    pub fn pin(&self) -> &P {
+        &self.pin
+    }
+
+    pub fn pin_mut(&mut self) -> &mut P {
+        &mut self.pin
+    }
+
     /// Sets the relay to high
     pub fn set_high(&mut self) -> Result<(), P::Error> {
         self.pin.set_high()
@@ -52,8 +60,11 @@ impl<P : OutputPin> Relay<P> {
     pub fn set_low(&mut self) -> Result<(), P::Error> {
         self.pin.set_low()
     }
-}
 
+    pub fn set_state(&mut self, s : bool) -> Result<(), P::Error> {
+        self.pin.set_state(s.into())
+    }
+}
 
 // pub struct RotaryEncoder<DT : InputPin, CLK : InputPin> {
 //     dt : DT,

@@ -52,6 +52,24 @@ where
         }
     // 
 
+    // Pins
+        pub fn cw_pin(&self) -> &CW {
+            &self.sig_cw
+        }
+
+        pub fn ccw_pin(&self) -> &CCW {
+            &self.sig_ccw
+        }
+
+        pub fn cw_pin_mut(&mut self) -> &mut CW { 
+            &mut self.sig_cw
+        }
+
+        pub fn ccw_pin_mut(&mut self) -> &mut CCW {
+            &mut self.sig_ccw
+        }
+    // 
+
     /// Drive the motor at a certain duty
     pub fn drive(&mut self, dir : Direction, speed : CW::Duty) {
         self._dir = dir;
