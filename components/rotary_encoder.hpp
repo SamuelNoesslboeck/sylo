@@ -8,7 +8,7 @@
 
 # pragma once
 
-# include "Arduino.h"
+# include <Arduino.h>
 
 /// @brief A movement of the rotary encoder
 enum RotaryMove {

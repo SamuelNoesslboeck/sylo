@@ -8,6 +8,8 @@
 
 # pragma once
 
+# include <Arduino.h>
+
 /// @brief A function block class common in PLC programming, used to keep input signals alive longer for a fixed period of time, the `phase`
 class TOff {
 private:

@@ -8,6 +8,8 @@
 
 # pragma once
 
+# include <Arduino.h>
+
 /// @brief A RTrig (Rising trigger) function block, as common in PLC programming
 struct RTrig {
 private: 

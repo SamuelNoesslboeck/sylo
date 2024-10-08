@@ -8,6 +8,8 @@
 
 # pragma once
 
+# include <Arduino.h>
+
 /// @brief A function block class common in PLC programming, used to delay an output signal for a certain amount of time, the `phase`
 class TOn {
 private:

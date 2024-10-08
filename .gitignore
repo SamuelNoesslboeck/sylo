@@ -1,2 +1,6 @@
 # VSCode settings
 .vscode
+
+# Draw.io backups
+.$*
+*.bkp

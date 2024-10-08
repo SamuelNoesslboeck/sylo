@@ -8,6 +8,8 @@
 
 # pragma once
 
+# include <Arduino.h>
+
 /// @brief A FTrig (Falling trigger) function block, as common in PLC programming
 struct FTrig {
 private: 
