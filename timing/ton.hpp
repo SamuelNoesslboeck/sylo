@@ -2,7 +2,7 @@
 // #    TOn - Timing component    #
 // ################################
 //
-// > Version 0.1.0
+// > Version 0.2.0
 // >
 // > Build for the Arduino framework!
 
@@ -55,5 +55,12 @@ public:
         } else {
             return false;
         }
+    }
+
+    /// @brief Executes the block, updating all internal variables and returning the output signal
+    /// @param in The input signal of the block
+    /// @return The output signal of the block
+    bool operator()(bool in) {
+        return this->exec(in);
     }
 }; 
