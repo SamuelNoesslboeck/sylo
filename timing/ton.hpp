@@ -1,8 +1,6 @@
 // ################################
 // #    TOn - Timing component    #
 // ################################
-//
-// > Version 0.2.0
 // >
 // > Build for the Arduino framework!
 

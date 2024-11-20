@@ -1,8 +1,6 @@
 // ############################################
 // #    Comp - Comparing trigger component    #
 // ############################################
-//
-// > Version 0.1.0
 // >
 // > Build for the Arduino framework!
 

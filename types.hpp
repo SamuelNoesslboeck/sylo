@@ -4,13 +4,14 @@
 //
 // Additional helper types for the arduino framework
 //
-// > Version 0.1.0
 // > Built for the Arduino framework!
 
 # pragma once
 
-// Special types
+/// Expresses a direction of movement
 enum class Direction : bool {
+    /// Indicates clockwise / positive movement
     CW = true,
+    /// indicates counter-clockwise / negative movement
     CCW = false
 }; 

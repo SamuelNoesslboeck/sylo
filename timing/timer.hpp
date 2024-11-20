@@ -1,3 +1,9 @@
+// ##################################
+// #    Timer - Timing component    #
+// ##################################
+// >
+// > Build for the Arduino framework!
+
 # pragma once
 
 # include <Arduino.h>

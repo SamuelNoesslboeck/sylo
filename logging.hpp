@@ -1,8 +1,6 @@
 // ################
 // #   LOGGING    #
 // ################
-// 
-// > Version: 0.1.0
 // >
 // > Build for the Arduino framework!
 
