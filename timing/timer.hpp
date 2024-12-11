@@ -16,6 +16,10 @@ private:
 public:
     Timer() { }
 
+    Timer(uint32_t duration) {
+        this->duration = duration;
+    }
+
     void set() {
         this->set_stamp = millis();
     }

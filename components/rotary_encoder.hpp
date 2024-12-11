@@ -49,10 +49,17 @@ public:
         pinMode(sw, INPUT);
         pinMode(clk, INPUT);
         pinMode(dt, INPUT);
+
+        this->set_zero();
+    }
+
+    void set_zero() {
+        this->clk_last = digitalRead(this->clk);
+        this->dt_last = digitalRead(this->dt);
+        this->counter = 0;
     }
 
     // Checking functions
-
         /// @brief Check the current state of the rotary switch
         /// @return The switch value
         bool check_switch() {
@@ -84,14 +91,6 @@ public:
             this->dt_last = dt_new;
 
             return move;
-        }
-    //
-
-    // Other functions
-
-        /// @brief Resets the internal counter of the rotary encoder class
-        void reset_counter() {
-            this->counter = 0;
         }
     //
 };
