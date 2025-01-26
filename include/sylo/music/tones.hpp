@@ -1,5 +1,7 @@
 # pragma once
 
+# include <Arduino.h>
+
 enum class Tone : uint32_t {
     C6,
     D6,

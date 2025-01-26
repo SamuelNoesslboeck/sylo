@@ -4,6 +4,8 @@
 //
 // > Helper file with all the snippets used so the correct use of the library can be verified
 
+# include <Arduinio.h>
+
 # include "logging.hpp"
 
 // Components
