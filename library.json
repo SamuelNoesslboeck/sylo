@@ -1,6 +1,6 @@
 {
   "name": "sylo",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A small helper library with components and sturctures frequently used in low level programming, especially with the arduino framework",
   "keywords": "arduino",
   "repository":

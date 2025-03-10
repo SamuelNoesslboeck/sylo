@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="design/logo/sylo_logo_titled.svg" width="50%" />
+    <img src="design/logos/sylo_logo_text.png" width="75%" />
 </p>
 
 ---------------------------------------------------------------------------------------------------------
