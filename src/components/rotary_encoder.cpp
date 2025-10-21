@@ -2,8 +2,12 @@
 
 # include <Arduino.h>
 
+bool is_movement(RotaryMove move) {
+    return (bool)move;
+}
+
 RotaryEncoder::RotaryEncoder(uint8_t sw, uint8_t dt, uint8_t clk) 
-    : counter(0), clk_last(false), dt_last(false), sw(sw), clk(clk), dt(dt)
+    : sw(sw), clk(clk), dt(dt)
 {
     // Setup all the required pins
     pinMode(sw, INPUT);

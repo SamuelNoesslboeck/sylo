@@ -12,9 +12,9 @@
 class TOn {
 private:
     /// @brief Timestamp in milliseconds since the input signal has been high
-    uint32_t since;
+    uint32_t since = 0;
     /// @brief Helper variable to track a constant input signal
-    bool waiting;
+    bool waiting = false;
 
 public:
     /// @brief The phase (in milliseconds) regulates how long the output signal will be delayed from the constant input signal

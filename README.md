@@ -218,3 +218,17 @@ void loop() {
     }
 }
 ```
+
+## Building & IDE
+
+To build the library with platformio, simply run a platformio shell and type:
+
+```sh
+pio cl --lib="." --board="uno" "src"
+```
+
+Furthermore, if you want to integrate the library properly into an IDE like VSCode, type:
+
+```sh
+pio init --ide vscode
+```

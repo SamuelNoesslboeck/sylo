@@ -1,6 +1,6 @@
 {
   "name": "sylo",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "A small helper library with components and sturctures frequently used in low level programming, especially with the arduino framework",
   "keywords": "arduino",
   "repository":
@@ -15,7 +15,5 @@
       "email": "samuel.noesslboeck@gmail.com"
     }
   ],
-  "license": "MIT",
-  "frameworks": "*",
-  "platforms": "*"
+  "license": "MIT"
 }

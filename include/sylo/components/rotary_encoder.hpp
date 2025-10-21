@@ -18,15 +18,14 @@ enum RotaryMove {
     CCW
 };
 
-static bool is_movement(RotaryMove move) {
-    return (bool)move;
-}
+/// Checks whether the given Rotary move is not `None`
+extern bool is_movement(RotaryMove move);
 
 /// @brief A general structure for rotary encoders
 struct RotaryEncoder {
 private:
     // Stores the last state of the encoder
-    bool clk_last, dt_last;
+    bool clk_last = false, dt_last = false;
 
 public:
     /// @brief The switch pin of the rotary encoder
@@ -36,7 +35,7 @@ public:
     /// @brief The data pin of the rotary encoder
     uint8_t dt;
     /// @brief A counter value for the total distance moved
-    int32_t counter;
+    int32_t counter = 0;
 
     /// @brief Create a new rotary encoder
     /// @param sw The switch pin of the rotary encoder

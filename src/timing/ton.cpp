@@ -4,7 +4,7 @@
 
 /// @brief Creates a new instance of a TOn timing component
 /// @param phase The phase (in milliseconds) regulates how long the output signal will be delayed from the constant input signal
-TOn::TOn(uint32_t phase) : since(0), phase(phase), waiting(false) {
+TOn::TOn(uint32_t phase) : phase(phase) {
     // No further construction needed
 }
 
@@ -29,7 +29,7 @@ bool TOn::exec(bool in) {
 }
 
 /// @brief Returns the time (in milliseconds) that the component got a constant `HIGH` input signal
-uint32_t elapsed_time() {
+uint32_t TOn::elapsed_time() {
     if (this->waiting) {
         return (millis() - this->since);
     } else {

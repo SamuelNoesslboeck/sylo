@@ -1,7 +1,7 @@
 # include "sylo/triggers/comp.hpp"
 
 # include <inttypes.h>
-# include <math.h>
+# include <Arduino.h>
 
 Comp::Comp(uint16_t delta_trig) : delta_trig(delta_trig) { }
 
