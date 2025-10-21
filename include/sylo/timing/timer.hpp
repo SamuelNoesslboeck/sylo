@@ -6,7 +6,7 @@
 
 # pragma once
 
-# include <Arduino.h>
+# include <inttypes.h>
 
 class Timer {
 private:
@@ -14,26 +14,15 @@ private:
     uint32_t duration = 0;
 
 public:
-    Timer() { }
+    Timer();
 
-    Timer(uint32_t duration) {
-        this->duration = duration;
-    }
+    Timer(uint32_t duration);
 
-    void set() {
-        this->set_stamp = millis();
-    }
+    void set();
 
-    void set(uint32_t duration) {
-        this->set_stamp = millis();
-        this->duration = duration;
-    }
+    void set(uint32_t duration);
 
-    bool running() {
-        return (this->set_stamp + this->duration) > millis();
-    }
+    bool running();
 
-    bool has_elapsed() {
-        return (this->set_stamp + this->duration) < millis();
-    }
+    bool has_elapsed();
 };
