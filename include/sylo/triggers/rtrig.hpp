@@ -6,8 +6,6 @@
 
 # pragma once
 
-# include <Arduino.h>
-
 /// @brief A RTrig (Rising trigger) function block, as common in PLC programming
 struct RTrig {
 private: 
@@ -16,23 +14,15 @@ private:
 
 public:
     /// @brief Creates a new instance of an RTrig trigger component
-    RTrig() : last(false) {
-        // No further instructions required
-    }
+    RTrig();
 
     /// @brief Executes the block, updating all internal variables and returning the output signal
     /// @param in The input signal of the block
     /// @return The output signal of the block
-    bool exec(bool in) {
-        bool result = (!last) & in;
-        last = in;
-        return result;
-    }
+    bool exec(bool in);
 
     /// @brief Executes the block, updating all internal variables and returning the output signal
     /// @param in The input signal of the block
     /// @return The output signal of the block
-    bool operator()(bool in) {
-        return this->exec(in);
-    }
+    bool operator()(bool in);
 };

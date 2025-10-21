@@ -6,21 +6,21 @@
 
 # pragma once
 
-# include <Arduino.h>
+# include <inttypes.h>
 
 /// @brief A function block class common in PLC programming, used to keep input signals alive longer for a fixed period of time, the `phase`
 class TOff {
 private:
     /// @brief Timestamp in milliseconds of the last time the input signal has been `HIGH`
-    unsigned long last;
+    uint32_t last;
 
 public:
     /// @brief The phase (in milliseconds) regulates how long the output signal should be kept `HIGH`, when the input signal already dropped to `LOW`
-    unsigned long phase; 
+    uint32_t phase; 
 
     /// @brief Creates a new instance of a TOff timing component
     /// @param phase The phase (in milliseconds) regulates how long the output signal should be kept `HIGH`, when the input signal already dropped to `LOW`
-    TOff(unsigned long phase);
+    TOff(uint32_t phase);
 
     /// @brief Executes the block, updating all internal variables and returning the output signal
     /// @param in The input signal of the block
@@ -28,7 +28,7 @@ public:
     bool exec(bool in);
 
     /// @brief Returns the elapsed time (in milliseconds) since the last `HIGH` on the input signal
-    unsigned long elapsed_time();
+    uint32_t elapsed_time();
 
     /// @brief Executes the block, updating all internal variables and returning the output signal
     /// @param in The input signal of the block

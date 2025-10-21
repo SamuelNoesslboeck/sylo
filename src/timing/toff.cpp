@@ -2,7 +2,7 @@
 
 # include <Arduino.h>
 
-TOff::TOff(unsigned long phase) : last(0), phase(phase) {
+TOff::TOff(uint32_t phase) : last(0), phase(phase) {
     // No further construction needed
 }
 
@@ -19,7 +19,7 @@ bool TOff::exec(bool in) {
     return false;
 }
 
-unsigned long TOff::elapsed_time() {
+uint32_t TOff::elapsed_time() {
     return (millis() - this->last);
 }
 

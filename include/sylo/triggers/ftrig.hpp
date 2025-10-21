@@ -6,8 +6,6 @@
 
 # pragma once
 
-# include <inttypes.h>
-
 /// @brief A FTrig (Falling trigger) function block, as common in PLC programming
 struct FTrig {
 private: 
